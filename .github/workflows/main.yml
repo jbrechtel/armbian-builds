@@ -1,0 +1,14 @@
+name: "Build Armbian"
+on:
+  workflow_dispatch:
+jobs:
+  build-armbian-opi5-max:
+    runs-on: [self-hosted]
+    steps:
+      - uses: armbian/build@main
+        with:
+          armbian_token:     "${{ secrets.GITHUB_TOKEN }}"
+          armbian_release:   "noble"
+          armbian_target:    "build"
+          armbian_ui:        "server"
+          armbian_board:     "orangepi5-max"
